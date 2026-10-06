@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>WOG Funds</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div><div class="brand">WOG</div><div class="sub">WORLD OF GOD • FUNDING</div></div>
+  <button id="themeBtn" class="icon-btn">☾</button>
+</header>
+
+<main class="container">
+<section class="hero">
+  <div>
+    <p class="eyebrow">FINANCE DASHBOARD</p>
+    <h1>WOG Funds</h1>
+    <p>Track donations, expenses and your running balance in one place.</p>
+  </div>
+</section>
+
+<section class="cards">
+  <div class="card"><span>Total Donations</span><strong id="totalDonations">₹0</strong></div>
+  <div class="card"><span>Total Expenses</span><strong id="totalExpenses">₹0</strong></div>
+  <div class="card balance"><span>Available Balance</span><strong id="balance">₹0</strong></div>
+</section>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="dashboard">Dashboard</button>
+  <button class="tab" data-tab="donations">Donations</button>
+  <button class="tab" data-tab="expenses">Expenses</button>
+  <button class="tab" data-tab="history">History</button>
+</nav>
+
+<section id="dashboard" class="panel active">
+  <div class="section-head"><h2>Recent Transactions</h2></div>
+  <div id="recent"></div>
+</section>
+
+<section id="donations" class="panel">
+  <div class="section-head"><h2>Add Donation</h2></div>
+  <form id="donationForm" class="form">
+    <input name="date" type="date" required>
+    <input name="donor" placeholder="Donor name" required>
+    <input name="amount" type="number" min="0" step="0.01" placeholder="Amount (₹)" required>
+    <select name="mode"><option>UPI</option><option>Cash</option><option>Bank Transfer</option><option>Other</option></select>
+    <input name="purpose" placeholder="Purpose">
+    <input name="reference" placeholder="Transaction / reference ID">
+    <textarea name="remarks" placeholder="Remarks"></textarea>
+    <button class="primary">Save Donation</button>
+  </form>
+</section>
+
+<section id="expenses" class="panel">
+  <div class="section-head"><h2>Add Expense</h2></div>
+  <form id="expenseForm" class="form">
+    <input name="date" type="date" required>
+    <input name="description" placeholder="Expense description" required>
+    <input name="amount" type="number" min="0" step="0.01" placeholder="Amount (₹)" required>
+    <select name="category"><option>Ministry</option><option>Events</option><option>Media</option><option>Travel</option><option>Equipment</option><option>Other</option></select>
+    <textarea name="remarks" placeholder="Remarks"></textarea>
+    <button class="primary">Save Expense</button>
+  </form>
+</section>
+
+<section id="history" class="panel">
+  <div class="section-head"><h2>Transaction History</h2></div>
+  <div class="filters">
+    <input id="search" placeholder="Search donor, description, purpose...">
+    <select id="typeFilter"><option value="all">All</option><option value="donation">Donations</option><option value="expense">Expenses</option></select>
+  </div>
+  <div id="historyList"></div>
+</section>
+</main>
+
+<footer>WORLD OF GOD • WOG Funds</footer>
+<script src="app.js"></script>
+</body>
+</html>
